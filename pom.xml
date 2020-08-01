@@ -14,6 +14,13 @@
     <name>study-springboot</name>
     <description>Demo project for Spring Boot</description>
 
+    <modules>
+        <module>study-web</module>
+        <module>study-biz</module>
+        <module>study-dao</module>
+        <module>study-common</module>
+    </modules>
+
     <properties>
         <java.version>1.8</java.version>
     </properties>

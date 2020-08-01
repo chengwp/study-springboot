@@ -1,10 +1,10 @@
-package com.cwp.study.studycommon;
+package com.cwp.study.web;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class StudyCommonApplicationTests {
+class StudyApplicationTests {
 
     @Test
     void contextLoads() {
