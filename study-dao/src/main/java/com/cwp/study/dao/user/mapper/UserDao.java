@@ -1,7 +1,9 @@
 package com.cwp.study.dao.user.mapper;
 
 import com.cwp.study.dao.user.entity.User;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface UserDao {
     int deleteByPrimaryKey(Long userId);
 

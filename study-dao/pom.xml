@@ -62,6 +62,33 @@
         </dependency>
     </dependencies>
 
+    <!--<build>
+            &lt;!&ndash; 资源目录 &ndash;&gt;
+            <resources>
+                <resource>
+                    &lt;!&ndash; 设定主资源目录  &ndash;&gt;
+                    <directory>src/main/java</directory>
+
+                    &lt;!&ndash; maven default生命周期，process-resources阶段执行maven-resources-plugin插件的resources目标处理主资源目下的资源文件时，只处理如下配置中包含的资源类型 &ndash;&gt;
+                    <includes>
+                        <include>**/*.xml</include>
+                    </includes>
+
+                    &lt;!&ndash; maven default生命周期，process-resources阶段执行maven-resources-plugin插件的resources目标处理主资源目下的资源文件时，不处理如下配置中包含的资源类型（剔除下如下配置中包含的资源类型）&ndash;&gt;
+                    <excludes>
+                        <exclude>**/*.yaml</exclude>
+                    </excludes>
+
+                    &lt;!&ndash; maven default生命周期，process-resources阶段执行maven-resources-plugin插件的resources目标处理主资源目下的资源文件时，指定处理后的资源文件输出目录，默认是${build.outputDirectory}指定的目录&ndash;&gt;
+                    &lt;!&ndash;<targetPath>${build.outputDirectory}</targetPath> &ndash;&gt;
+
+                    &lt;!&ndash; maven default生命周期，process-resources阶段执行maven-resources-plugin插件的resources目标处理主资源目下的资源文件时，是否对主资源目录开启资源过滤 &ndash;&gt;
+                    <filtering>true</filtering>
+                </resource>
+            </resources>
+
+    </build>
+-->
 
 
 </project>
