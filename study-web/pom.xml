@@ -51,22 +51,6 @@
 
     <build>
 
-            <resources>
-                <resource>
-                    <filtering>true</filtering>
-                    <directory>${project.basedir}/src/main/resources</directory>
-                    <includes>
-                        <include>*.properties</include>
-                    </includes>
-                </resource>
-                <resource>
-                    <filtering>true</filtering>
-                    <directory>${project.basedir}/src/main/java</directory>
-                    <includes>
-                        <include>*.xml</include>
-                    </includes>
-                </resource>
-            </resources>
 
 
 
