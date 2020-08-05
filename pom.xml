@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.cwp.study</groupId>
     <artifactId>study-springboot</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>study-springboot</name>
     <packaging>pom</packaging>
     <description>Demo project for Spring Boot</description>
@@ -24,7 +24,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <study.version>0.0.1-SNAPSHOT</study.version>
+        <study.version>0.0.1</study.version>
     </properties>
 
     <dependencyManagement>
@@ -34,21 +34,21 @@
             <dependency>
                 <groupId>com.cwp.study</groupId>
                 <artifactId>study-common</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>${study.version}</version>
             </dependency>
 
 
             <dependency>
                 <groupId>com.cwp.study</groupId>
                 <artifactId>study-dao</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>${study.version}</version>
             </dependency>
 
 
             <dependency>
                 <groupId>com.cwp.study</groupId>
                 <artifactId>study-biz</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>${study.version}</version>
             </dependency>
 
 

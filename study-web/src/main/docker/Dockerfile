@@ -4,7 +4,7 @@ VOLUME /tmp
 
 RUN mkdir /app
 
-ADD study-web-0.0.1-SNAPSHOT.jar /app/app.jar
+ADD study-web-0.0.1.jar /app/app.jar
 
 RUN bash -c "touch /app/app.jar"
 

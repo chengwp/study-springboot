@@ -5,25 +5,29 @@
     <parent>
         <groupId>com.cwp.study</groupId>
         <artifactId>study-springboot</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.1</version>
         <relativePath>../pom.xml</relativePath><!-- lookup parent from repository -->
     </parent>
     <groupId>com.cwp.study</groupId>
     <artifactId>study-web</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>study-web</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
+        <registry.url>https://hub.docker.com/</registry.url>
+        <my.registry.url>http://192.168.10.198:5000</my.registry.url>
+        <registry.com>192.168.10.198:5000</registry.com>
+        <repo.name>chengweiping</repo.name>
     </properties>
 
     <dependencies>
 
+
+
         <dependency>
             <groupId>com.cwp.study</groupId>
             <artifactId>study-biz</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -67,15 +71,28 @@
                     <groupId>com.spotify</groupId>
                     <artifactId>docker-maven-plugin</artifactId>
                     <configuration>
-                        <imageName>${project.name}:${project.version}</imageName>
+                        <imageName>${registry.com}/${repo.name}/${project.name}:${project.version}</imageName>
                         <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
                         <skipDockerBuild>false</skipDockerBuild>
+
+<!--  docker 地址 不配置读取环境变量为DOCKER_HOST中的变量值：远程值配置：tcp://<host>:2375  linux环境下docker本机docker地址配置：unix:///var/run/docker.sock -->
+                        <dockerHost>unix:///var/run/docker.sock</dockerHost>
+
+
                         <resources>
                             <resource>
                                 <directory>${project.build.directory}</directory>
                                 <include>${project.build.finalName}.jar</include>
                             </resource>
                         </resources>
+                        <pushImage>true</pushImage>
+<!--
+                        <serverId>docker-hub</serverId>
+-->
+
+<!--
+                        <registryUrl>${my.registry.url}</registryUrl>
+-->
 
                     </configuration>
 
