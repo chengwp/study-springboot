@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.cwp.study</groupId>
     <artifactId>study-springboot</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>study-springboot</name>
     <packaging>pom</packaging>
     <description>Demo project for Spring Boot</description>
@@ -24,7 +24,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <study.version>0.0.1-SNAPSHOT</study.version>
+        <study.version>0.0.1</study.version>
     </properties>
 
     <dependencyManagement>
@@ -34,38 +34,34 @@
             <dependency>
                 <groupId>com.cwp.study</groupId>
                 <artifactId>study-common</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>${study.version}</version>
             </dependency>
 
 
             <dependency>
                 <groupId>com.cwp.study</groupId>
                 <artifactId>study-dao</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>${study.version}</version>
             </dependency>
 
 
             <dependency>
                 <groupId>com.cwp.study</groupId>
                 <artifactId>study-biz</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>${study.version}</version>
             </dependency>
 
 
 
-            <dependency>
+
+
+           <!-- <dependency>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter</artifactId>
+                <artifactId>spring-boot-dependencies</artifactId>
                 <version>2.3.2.RELEASE</version>
-            </dependency>
-
-
-
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <version>2.3.2.RELEASE</version>
-            </dependency>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>-->
 
 
 
@@ -110,12 +106,19 @@
 
     <build>
 
+
+
+
         <pluginManagement>
+
+
             <plugins>
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
                 </plugin>
+
+
 
             </plugins>
         </pluginManagement>
@@ -143,6 +146,20 @@
                 <!-- maven default生命周期，process-resources阶段执行maven-resources-plugin插件的resources目标处理主资源目下的资源文件时，是否对主资源目录开启资源过滤 -->
                 <filtering>true</filtering>
             </resource>
+
+            <resource>
+                <filtering>true</filtering>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <includes>
+                    <include>*.properties</include>
+                    <include>*.yaml</include>
+                    <include>*.yml</include>
+                    <include>*.xml</include>
+                </includes>
+            </resource>
+
+
+
         </resources>
 
     </build>

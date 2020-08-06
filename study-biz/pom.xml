@@ -5,12 +5,11 @@
     <parent>
         <groupId>com.cwp.study</groupId>
         <artifactId>study-springboot</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.1</version>
         <relativePath>../pom.xml</relativePath><!-- lookup parent from repository -->
     </parent>
     <groupId>com.cwp.study</groupId>
     <artifactId>study-biz</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>study-biz</name>
     <description>Demo project for Spring Boot</description>
 
@@ -23,7 +22,6 @@
         <dependency>
             <groupId>com.cwp.study</groupId>
             <artifactId>study-dao</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>
