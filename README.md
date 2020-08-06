@@ -13,8 +13,16 @@ docker run -it -p 3306:3306 --rm --name mysql --network study-net  \
 
 ### 启动study-web项目容器
 docker run -it -p 8080:8080 --rm --name study-web --network study-net \
-study-web:0.0.1-SNAPSHOT \
+chengweiping/study-web:0.0.1 \
 --spring.profiles.active=test /bin/bash
+
+### 启动study-web项目容器（带环境变量方式，可以动态修改配置文件里面的变量值
+docker run -it -p 8080:8080 \
+-e MYSQL_HOST=127.0.0.1 \
+--rm --name study-web --network study-net  \
+chengweiping/study-web:0.0.1  \
+--spring.profiles.active=dev   \
+/bin/bash
 
 ### 搭建一个非认证方式的Docker registry（私有镜像仓库）
 docker run -d -p 5000:5000 --restart=always -v /Users/chengweiping/develop/docker/registry:/var/lib/registry --name registry  registry:2.4.1
@@ -22,7 +30,7 @@ docker run -d -p 5000:5000 --restart=always -v /Users/chengweiping/develop/docke
 ### 查询仓库镜像
 curl http://192.168.10.198:5000/v2/_catalog
 ### 查看某个镜像的标签列表
-curl http://192.168.10.198:5000/v2/study-web/tags/list
+curl http://192.168.10.198:5000/v2/chengweiping/study-web/tags/list
 
 
 ### 项目编译-推镜像命令

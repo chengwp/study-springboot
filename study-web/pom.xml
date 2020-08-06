@@ -15,7 +15,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <repo.name>chengweiping</repo.name>
+
     </properties>
 
     <dependencies>
@@ -52,55 +52,59 @@
 
     <build>
         <plugins>
-                <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
 
-                <plugin>
-                    <groupId>com.spotify</groupId>
-                    <artifactId>docker-maven-plugin</artifactId>
-                    <version>1.2.2</version>
-                    <configuration>
-                        <imageName>${repo.name}/${project.name}:${project.version}</imageName>
-                        <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
-                        <skipDockerBuild>false</skipDockerBuild>
-<!--  docker 地址 不配置读取环境变量为DOCKER_HOST中的变量值：远程值配置：tcp://<host>:2375  linux环境下docker本机docker地址配置：unix:///var/run/docker.sock -->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.2.2</version>
+                <configuration>
+                    <imageName>${dockerhub.prefix}/${dockerhub.repo}/${project.name}:${project.version}</imageName>
+                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
+                    <skipDockerBuild>false</skipDockerBuild>
+                    <!--  docker 地址 不配置读取环境变量为DOCKER_HOST中的变量值：远程值配置：tcp://<host>:2375  linux环境下docker本机docker地址配置：unix:///var/run/docker.sock -->
                     <!--  <dockerHost>tcp://127.0.0.1:2375</dockerHost>-->
-                        <resources>
-                            <resource>
-                                <targetPath>/</targetPath>
-                                <directory>${project.build.directory}</directory>
-                                <include>${project.build.finalName}.jar</include>
-                            </resource>
-                        </resources>
-                        <pushImage>true</pushImage>
-                        <!-- dockerhub 登录配置-->
-                        <serverId>docker-hub</serverId>
-                        <registryUrl>${dockerhub.registry.url}</registryUrl>
-                    </configuration>
-                </plugin>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                    <pushImage>true</pushImage>
+                    <!-- dockerhub 登录配置-->
+                    <serverId>${dockerhub.serverId}</serverId>
+                    <registryUrl>${dockerhub.registry.url}</registryUrl>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
     <profiles>
         <profile>
-                <id>dev</id>
-                <properties>
-                    <dockerhub.serverId>my-docker-hub</dockerhub.serverId>
-                    <dockerhub.registry.url>http://192.168.10.198:5000</dockerhub.registry.url>
-                </properties>
+            <id>dev</id>
+            <properties>
+                <dockerhub.serverId>my-docker-hub</dockerhub.serverId>
+                <dockerhub.prefix>192.168.10.198:5000</dockerhub.prefix>
+                <dockerhub.repo>chengweiping</dockerhub.repo>
+                <dockerhub.registry.url>http://192.168.10.198:5000</dockerhub.registry.url>
+            </properties>
 
         </profile>
         <profile>
-                <id>test</id>
-                <properties>
-                    <dockerhub.serverId>docker-hub</dockerhub.serverId>
-                    <dockerhub.registry.url>https://index.docker.io/v1/</dockerhub.registry.url>
-                </properties>
-                <activation>
-                    <activeByDefault>true</activeByDefault>
-                </activation>
+            <id>test</id>
+            <properties>
+                <dockerhub.serverId>docker-hub</dockerhub.serverId>
+                <dockerhub.prefix>docker.io</dockerhub.prefix>
+                <dockerhub.repo>chengweiping</dockerhub.repo>
+                <dockerhub.registry.url>https://index.docker.io/v1/</dockerhub.registry.url>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
         </profile>
     </profiles>
 
