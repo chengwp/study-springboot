@@ -16,10 +16,12 @@
     <description>Demo project for Spring Boot</description>
 
     <modules>
-        <module>study-web</module>
-        <module>study-biz</module>
-        <module>study-dao</module>
+
         <module>study-common</module>
+        <module>study-dao</module>
+        <module>study-middleware</module>
+        <module>study-biz</module>
+        <module>study-web</module>
     </modules>
 
     <properties>
@@ -51,6 +53,12 @@
                 <version>${study.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.cwp.study</groupId>
+                <artifactId>study-middleware</artifactId>
+                <version>${study.version}</version>
+            </dependency>
+
 
 
 
@@ -77,6 +85,12 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>8.0.21</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-configuration-processor</artifactId>
+                <version>2.3.2.RELEASE</version>
             </dependency>
 
 

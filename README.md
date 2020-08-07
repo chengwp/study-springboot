@@ -11,6 +11,9 @@ docker run -it -p 3306:3306 --rm --name mysql --network study-net  \
 -e MYSQL_ROOT_PASSWORD=123456 \
 -d mysql:5.7
 
+### 启动redis
+docker run -d -p 6379:6379 --rm --name redis --network study-net \
+-v /Users/chengweiping/develop/docker/redis/:/data  redis:latest
 ### 启动study-web项目容器
 docker run -it -p 8080:8080 --rm --name study-web --network study-net \
 chengweiping/study-web:0.0.1 \
