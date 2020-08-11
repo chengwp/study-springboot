@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-pv
+  labels:
+    type: local
+spec:
+  storageClassName: maual
+  capacity:
+    storage: 20M
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/Users/chengweiping/develop/k8s/mysql/data"
+
