@@ -42,7 +42,13 @@ spec:
               configMapKeyRef:
                 name: study-web-configmap
                 key: mysql.password
-
+        volumeMounts:
+          - mountPath: /etc/config/study-web
+            name: study-web-configmap-volume
+      volumes:
+        - name: study-web-configmap-volume
+          configMap:
+            name: study-web-configmap
       restartPolicy: Always
   selector:
     matchLabels:
