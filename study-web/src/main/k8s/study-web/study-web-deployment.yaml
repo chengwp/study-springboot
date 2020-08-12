@@ -16,6 +16,33 @@ spec:
       - name: study-web
         image: 192.168.10.198:5000/chengweiping/study-web:0.0.1
         imagePullPolicy: IfNotPresent
+        env:
+          - name: MYSQL_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: study-web-configmap
+                key: mysql.host
+          - name: MYSQL_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: study-web-configmap
+                key: mysql.port
+          - name: MYSQL_DATABASE
+            valueFrom:
+              configMapKeyRef:
+                name: study-web-configmap
+                key: mysql.database
+          - name: MYSQL_USERNAME
+            valueFrom:
+               configMapKeyRef:
+                 name: study-web-configmap
+                 key: mysql.username
+          - name: MYSQL_PASSWORD
+            valueFrom:
+              configMapKeyRef:
+                name: study-web-configmap
+                key: mysql.password
+
       restartPolicy: Always
   selector:
     matchLabels:
