@@ -9,6 +9,6 @@ data:
   mysql.database: study
   mysql.username: root
   mysql.password: "123456"
-  redis.host: 127.0.0.1
+  redis.host: "127.0.0.1"
   redis.port: "31326"
   redis.password: ""

@@ -1,19 +1,19 @@
 apiVersion: v1
 kind: Service
 metadata:
-  creationTimestamp: "2020-08-13T04:27:45Z"
+  creationTimestamp: "2020-08-13T05:47:03Z"
   labels:
     app: study-web
   name: study-web
   namespace: default
-  resourceVersion: "104145"
+  resourceVersion: "110637"
   selfLink: /api/v1/namespaces/default/services/study-web
-  uid: daa9dc2c-8cc0-4281-b589-d85139e816dc
+  uid: 87586c05-4be9-449c-ace1-b9d496667fef
 spec:
-  clusterIP: 10.109.118.241
+  clusterIP: 10.106.49.216
   externalTrafficPolicy: Cluster
   ports:
-  - nodePort: 31331
+  - nodePort: 32288
     port: 8080
     protocol: TCP
     targetPort: 8080

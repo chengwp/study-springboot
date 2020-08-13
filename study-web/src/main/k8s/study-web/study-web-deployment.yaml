@@ -47,6 +47,22 @@ spec:
               configMapKeyRef:
                 name: study-web-configmap
                 key: mysql.password
+          - name: REDIS_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: study-web-configmap
+                key: redis.host
+          - name: REDIS_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: study-web-configmap
+                key: redis.port
+          - name: REDIS_PASSWORD
+            valueFrom:
+              configMapKeyRef:
+                name: study-web-configmap
+                key: redis.password
+
         volumeMounts:
           - mountPath: /etc/config/study-web
             name: study-web-configmap-volume
