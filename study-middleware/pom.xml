@@ -6,12 +6,13 @@
         <groupId>com.cwp.study</groupId>
         <artifactId>study-springboot</artifactId>
         <version>0.0.1</version>
-        <relativePath>../pom.xml</relativePath><!-- lookup parent from repository -->
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.cwp.study</groupId>
-    <artifactId>study-biz</artifactId>
-    <name>study-biz</name>
-    <description>Demo project for Spring Boot</description>
+    <artifactId>study-middleware</artifactId>
+    <name>study-middleware</name>
+    <packaging>jar</packaging>
+    <description>中间件</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -21,20 +22,25 @@
 
         <dependency>
             <groupId>com.cwp.study</groupId>
-            <artifactId>study-dao</artifactId>
+            <artifactId>study-common</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>com.cwp.study</groupId>
-            <artifactId>study-middleware</artifactId>
-        </dependency>
-
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -47,8 +53,6 @@
             </exclusions>
         </dependency>
     </dependencies>
-
-
 
 
 

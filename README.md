@@ -11,10 +11,25 @@ docker run -it -p 3306:3306 --rm --name mysql --network study-net  \
 -e MYSQL_ROOT_PASSWORD=123456 \
 -d mysql:5.7
 
+### 启动redis服务端方式1   指定数据存放目录与配置文件路径
+docker run -d -p 6379:6379 --rm --name redis  \
+-v /Users/chengweiping/develop/docker/redis/data:/data \
+-v /Users/chengweiping/develop/docker/redis/conf/redis.conf:/usr/local/etc/redis/redis.conf \
+ redis:latest
+ ### 启动redis服务端方式2  只指定配置文件路径
+ docker run -d -p 6379:6379 --rm --name redis  \
+ -v /Users/chengweiping/develop/docker/redis/data:/data \
+ chengweiping/redis:1.0.0
+ 
+ ### 启动redis客户端测试连接服务端获取服务端信息 （测试服务端是否启动成功）
+ docker run -it --rm --name=redis-cli goodsmileduck/redis-cli:latest redis-cli -h 127.0.0.1 -p 6379 info
+ 
 ### 启动study-web项目容器
 docker run -it -p 8080:8080 --rm --name study-web --network study-net \
 chengweiping/study-web:0.0.1 \
 --spring.profiles.active=test /bin/bash
+
+
 
 ### 启动study-web项目容器（带环境变量方式，可以动态修改配置文件里面的变量值
 docker run -it -p 8080:8080 \
