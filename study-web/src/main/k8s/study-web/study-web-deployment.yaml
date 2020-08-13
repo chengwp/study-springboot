@@ -14,9 +14,14 @@ spec:
     spec:
       containers:
       - name: study-web
-        image: 192.168.10.198:5000/chengweiping/study-web:0.0.1
+        image: 127.0.0.1:5000/chengweiping/study-web:0.0.1
         imagePullPolicy: IfNotPresent
         env:
+          - name: ENV
+            valueFrom:
+                configMapKeyRef:
+                  name: study-web-configmap
+                  key: env
           - name: MYSQL_HOST
             valueFrom:
               configMapKeyRef:

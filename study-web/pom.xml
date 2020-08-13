@@ -84,13 +84,27 @@
     </build>
 
     <profiles>
+
+        <profile>
+            <id>local</id>
+            <properties>
+                <dockerhub.serverId>my-docker-hub</dockerhub.serverId>
+                <dockerhub.prefix>127.0.0.1:5000</dockerhub.prefix>
+                <dockerhub.repo>chengweiping</dockerhub.repo>
+                <dockerhub.registry.url>http://127.0.0.1:5000</dockerhub.registry.url>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+
         <profile>
             <id>dev</id>
             <properties>
                 <dockerhub.serverId>my-docker-hub</dockerhub.serverId>
-                <dockerhub.prefix>192.168.10.198:5000</dockerhub.prefix>
+                <dockerhub.prefix>127.0.0.1:5000</dockerhub.prefix>
                 <dockerhub.repo>chengweiping</dockerhub.repo>
-                <dockerhub.registry.url>http://192.168.10.198:5000</dockerhub.registry.url>
+                <dockerhub.registry.url>http://127.0.0.1:5000</dockerhub.registry.url>
             </properties>
 
         </profile>
@@ -102,9 +116,7 @@
                 <dockerhub.repo>chengweiping</dockerhub.repo>
                 <dockerhub.registry.url>https://index.docker.io/v1/</dockerhub.registry.url>
             </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
+
         </profile>
     </profiles>
 

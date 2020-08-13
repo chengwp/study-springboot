@@ -3,6 +3,7 @@ kind: ConfigMap
 metadata:
   name: study-web-configmap
 data:
+  env: "dev"
   mysql.host: "127.0.0.1"
   mysql.port: "31586"
   mysql.database: study
