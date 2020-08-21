@@ -71,3 +71,8 @@ gitlab/gitlab-ce:latest
   -v /Users/chengweiping/develop/docker/gitlab-runner/config:/etc/gitlab-runner  \
   -v /Users/chengweiping/develop/docker/gitlab-runner/run/docker.sock:/var/run/docker.sock \
   gitlab/gitlab-runner:latest
+
+
+### docker for mac 开启远程访问
+docker run -p 3375:2375 --restart always -v /var/run/docker.sock:/var/run/docker.sock \
+ -d -e PORT=2375 shipyard/docker-proxy
