@@ -52,3 +52,22 @@ curl http://192.168.10.198:5000/v2/chengweiping/study-web/tags/list
 先在study-springboot目录下执行  mvn clean install 命令  进行编译安装
 然后在study-web目录下执行  mvn docker:build 进行构建镜像
 如果执行命令  mvn docker:build -DpushImage  进行构建进行并推送到镜像仓库
+
+###  搭建gitlab
+docker run -d  \
+--hostname gitlab.cwp.com \
+-p 8443:443 -p 8880:80 -p 8222:22 \
+--name gitlab \
+--restart always \
+-v /E/01docker/share/gitlab/config:/etc/gitlab \
+-v /E/01docker/share/gitlab/logs:/var/log/gitlab \
+-v /E/01docker/share/gitlab/data:/var/opt/gitlab \
+--privileged=true \
+gitlab/gitlab-ce:latest
+
+  
+  ### 搭建gitlab-runner
+  docker run -d --name gitlab-runner --restart always \
+  -v /E/01docker/share/gitlab-runner/config:/etc/gitlab-runner \
+  -v /E/01docker/share/gitlab-runner/run/docker.sock:/var/run/docker.sock \
+  gitlab/gitlab-runner:latest
