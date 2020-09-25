@@ -20,6 +20,14 @@
     <dependencies>
 
 
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.4.1</version>
+        </dependency>
+
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -36,6 +44,10 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+
+
+
     </dependencies>
 
 

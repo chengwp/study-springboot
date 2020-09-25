@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Profile;
 
 @SpringBootApplication
-@MapperScan("com.cwp.study.dao.user.mapper")
 public class StudySpringbootApplication {
 
     public static void main(String[] args) {
